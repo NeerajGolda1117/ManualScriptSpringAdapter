@@ -70,7 +70,7 @@ public class SimpleRouteBuilder extends RouteBuilder {
 		  .process(myprocessor)
 		  .otherwise()
 		  .log("Fetch API") 
-		  .to("http://localhost:8081/api1")
+		  .to("http://localhost:8081/article/api1")
 		  .end();
 
 		 
