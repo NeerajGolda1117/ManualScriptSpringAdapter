@@ -24,14 +24,15 @@ public class MessageRequestProcessor implements Processor {
 	@Override
 	public void process(Exchange exchange) throws Exception {
 		try {
-			RequestModel requestModel = objmap.readValue((String) exchange
+			RequestModel requestModel = objmap.readValue((String)
+					exchange
 					.getIn()
 					.getBody(), RequestModel.class);
 
 
-			exchange
+		/*	exchange
 					.getIn()
-					.setHeader("articleId",requestModel.getArticleId());
+					.setHeader("articleId",requestModel.getArticleId());*/
 		}
 		catch (Exception e)
 		{

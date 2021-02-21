@@ -28,7 +28,7 @@ public class ManuscriptSaveProcessor implements Processor {
 		  exchange .getIn() .getBody(), ManuscriptResponseModel.class);
 	
 		
-		exchange.getIn().setBody(new ObjectMapper().writeValueAsString(responseModel));
+		exchange.getIn().setBody(objmap.writeValueAsString(responseModel));
 		
 	}
 

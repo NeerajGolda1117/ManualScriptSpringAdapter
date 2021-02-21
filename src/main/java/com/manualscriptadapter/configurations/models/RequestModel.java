@@ -5,7 +5,10 @@ package com.manualscriptadapter.configurations.models;
 public class RequestModel {
 
 	
-	
+
+	private Long fetchArticleId;
+
+	private Long deleteArticleId;
 	
 	private Long articleId;
 	
@@ -17,26 +20,28 @@ public class RequestModel {
 	
 	private String authorEmailAddress;
 	
-	private int isActive;
+	private boolean isActive;
 	
-	private int isPublished;
+	private boolean isPublished;
 	
 	
 	private int pages;
-	
-	private String action;
-	
-	
 
-	public String getAction() {
-		return action;
+	public Long getFetchArticleId() {
+		return fetchArticleId;
 	}
 
-	public void setAction(String action) {
-		this.action = action;
+	public void setFetchArticleId(Long fetchArticleId) {
+		this.fetchArticleId = fetchArticleId;
 	}
 
+	public Long getDeleteArticleId() {
+		return deleteArticleId;
+	}
 
+	public void setDeleteArticleId(Long deleteArticleId) {
+		this.deleteArticleId = deleteArticleId;
+	}
 
 	public Long getArticleId() {
 		return articleId;
@@ -78,19 +83,19 @@ public class RequestModel {
 		this.authorEmailAddress = authorEmailAddress;
 	}
 
-	public int getIsActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(int isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	public int getIsPublished() {
+	public boolean getIsPublished() {
 		return isPublished;
 	}
 
-	public void setIsPublished(int isPublished) {
+	public void setIsPublished(boolean isPublished) {
 		this.isPublished = isPublished;
 	}
 

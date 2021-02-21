@@ -27,7 +27,7 @@ public class ManuscriptDeletePredicate implements Predicate {
 			RequestModel 	requestModel = objmap.readValue((String) exchange
 				      .getIn()
 				      .getBody(), RequestModel.class);
-			if (requestModel.getAction().equals("DELETE")) {
+			if (requestModel.getDeleteArticleId()!=null) {
 				
 
 				return true;
@@ -44,3 +44,5 @@ public class ManuscriptDeletePredicate implements Predicate {
 	}
 
 }
+
+

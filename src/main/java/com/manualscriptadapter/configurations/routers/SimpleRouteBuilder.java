@@ -28,22 +28,22 @@ public class SimpleRouteBuilder extends RouteBuilder {
    
 	
 	@Autowired
-	MessageRequestProcessor messageRequestProcessor ;
+	private MessageRequestProcessor messageRequestProcessor ;
 	
 	@Autowired
-	ManuscriptSaveProcessor manuscriptsaveprocessor;
+	private ManuscriptSaveProcessor manuscriptSaveProcessor;
 	
 	@Autowired
-	MessageServiceResponseProcessor myprocessor;
+	private MessageServiceResponseProcessor messageServiceResponseProcessor;
 	
 	@Autowired
-	ManuscriptUpdatePredicate manuscriptupdatepredicate;
+	private ManuscriptUpdatePredicate manuscriptUpdatePredicate;
 	
 	@Autowired
-	ManuscriptGetPredicate manuscriptgetpredicate;
+	private ManuscriptGetPredicate manuscriptGetPredicate;
 	
 	@Autowired
-	ManuscriptDeletePredicate manuscriptdeletepredicate;
+	private ManuscriptDeletePredicate manuscriptDeletePredicate;
 
 	
 
@@ -55,22 +55,24 @@ public class SimpleRouteBuilder extends RouteBuilder {
 		  .setHeader(Exchange.HTTP_METHOD,constant("POST"))
 		  .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
 		  .choice()
-		  .when(manuscriptupdatepredicate)
-		  .process(manuscriptsaveprocessor)
-		  .log("Save or Update Details")
+		  .when(manuscriptUpdatePredicate)
+		  .process(manuscriptSaveProcessor)
+		  .log(" Update Details")
 		  .to("http://localhost:8081/article/savedetails")
-		  .process( myprocessor)
-		  .when(manuscriptgetpredicate)
+		  .process( messageServiceResponseProcessor)
+		  .when(manuscriptGetPredicate)
 		  .log("Fetch Details")
 		  .toD("http://localhost:8081/article/details/${header.articleId}")
-		  .process(myprocessor)
-		  .when(manuscriptdeletepredicate)
+		  .process(messageServiceResponseProcessor)
+		  .when(manuscriptDeletePredicate)
 		  .log("Delete Details")
 		  .toD("http://localhost:8081/article/delete/${header.articleId}")
-		  .process(myprocessor)
+		  .process(messageServiceResponseProcessor)
 		  .otherwise()
-		  .log("Fetch API") 
-		  .to("http://localhost:8081/article/api1")
+		  .log("Save Details")
+				  .process(manuscriptSaveProcessor)
+		  .to("http://localhost:8081/article/savedetails")
+				  .process(messageServiceResponseProcessor)
 		  .end();
 
 		 

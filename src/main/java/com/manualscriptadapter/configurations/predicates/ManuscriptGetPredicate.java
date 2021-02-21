@@ -26,25 +26,28 @@ public class ManuscriptGetPredicate implements Predicate  {
 		
 		
 		
-		
-		try {
+	try {
 			RequestModel 	requestModel = objmap.readValue((String) exchange
 				      .getIn()
 				      .getBody(), RequestModel.class);
-			if (requestModel.getAction().equals("GET")) {
-				
+			if (requestModel.getFetchArticleId()!=null) {
 
+				exchange
+						.getIn()
+						.setHeader("articleId",requestModel.getFetchArticleId());
 				return true;
 			}
 		}  catch (Exception e) {
-			
+
 			log.error("BOOOMMM Exception" + e.toString());
+
 		}
-		
-
-
-		
 		return false;
+
+
+
+		
+
 	}
 
 }

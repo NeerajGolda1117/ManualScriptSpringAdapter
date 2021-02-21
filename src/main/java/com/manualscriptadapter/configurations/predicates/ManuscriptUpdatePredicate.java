@@ -28,17 +28,19 @@ public class ManuscriptUpdatePredicate implements Predicate {
 
 
         try {
-            RequestModel requestModel = objmap.readValue((String) exchange
+            RequestModel 	requestModel = objmap.readValue((String) exchange
                     .getIn()
                     .getBody(), RequestModel.class);
+            if (requestModel.getArticleId()!=null) {
 
-            return requestModel.getAction().equals("POST");
-        } catch (Exception e) {
 
-        	log.error("BOOOMMM Exception" + e.toString());
+                return true;
+            }
+        }  catch (Exception e) {
+
+            log.error("BOOOMMM Exception" + e.toString());
+
         }
-
-
         return false;
     }
 

@@ -16,9 +16,9 @@ public class ManuscriptResponseModel {
 	
 	private String authorEmailAddress;
 	
-	private int isActive;
+	private boolean isActive;
 	
-	private int isPublished;
+	private boolean isPublished;
 	
 	private int pages;
 	
@@ -64,19 +64,19 @@ public class ManuscriptResponseModel {
 		this.authorEmailAddress = authorEmailAddress;
 	}
 
-	public int getIsActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(int isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	public int getIsPublished() {
+	public boolean getIsPublished() {
 		return isPublished;
 	}
 
-	public void setIsPublished(int isPublished) {
+	public void setIsPublished(boolean isPublished) {
 		this.isPublished = isPublished;
 	}
 
