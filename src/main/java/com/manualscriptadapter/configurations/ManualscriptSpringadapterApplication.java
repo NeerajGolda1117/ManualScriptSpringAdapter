@@ -2,11 +2,7 @@ package com.manualscriptadapter.configurations;
 
 import javax.jms.ConnectionFactory;
 
-import com.manualscriptadapter.configurations.processors.MessageRequestProcessor;
-import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
-import org.apache.camel.CamelContext;
-import org.apache.camel.component.jms.JmsComponent;
-import org.apache.camel.impl.DefaultCamelContext;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -36,28 +32,6 @@ public class ManualscriptSpringadapterApplication {
 	}
 
 	
-	@Bean
-	public void jmsComponent() 
-	{
-       
-        CamelContext ctx = new DefaultCamelContext();
-        
-        //configure jms component        
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://0.0.0.0:61616");
-        ctx.addComponent("jms", JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
-        
-        
-        
-		
-		  try { 
-			 //ctx.addRoutes(routeBuilder);
-			  ctx.start(); 
-			  
-			  }
-		  catch (Exception e) {
-            log.error("BOOOMMM JMS Connection is failed",e.toString());
-			  }
-		 
-	}
+
 
 }

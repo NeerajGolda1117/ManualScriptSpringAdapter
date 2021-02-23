@@ -23,8 +23,8 @@ dependencies {
         implementation 'org.json:json:20171018'
 		implementation 'javax.activation:activation:1.1.1'
 	implementation 'org.apache.camel:camel-http:2.24.1'
-	implementation 'org.apache.camel:camel-core:2.24.1'
-	implementation 'org.apache.activemq:artemis-jms-server'
+	//implementation 'org.apache.camel:camel-core:2.24.1'
+//implementation 'org.apache.activemq:artemis-jms-server'
 	implementation 'org.apache.camel:camel-jms:2.25.3'
 
 
@@ -35,6 +35,18 @@ dependencies {
 	implementation 'org.apache.camel:camel-spring-boot-starter:2.24.1'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//testImplementation group: 'org.apache.camel', name: 'camel-test', version: '3.8.0'
+
+	testImplementation 'junit:junit:4.12'
+	testImplementation 'org.mockito:mockito-core:3.0.0'
+	testImplementation 'org.mockito:mockito-inline:2.13.0'
+	testImplementation 'org.assertj:assertj-core:3.4.1'
+	testImplementation 'com.openpojo:openpojo:0.8.3'
+	testImplementation ("org.apache.camel:camel-test-spring:2.24.1")
+	testImplementation group: 'com.openpojo', name: 'openpojo', version: '0.8.12'
+	testImplementation group: 'com.github.hazendaz', name: 'javabean-tester', version: '2.1.2'
+
 
 }
 
